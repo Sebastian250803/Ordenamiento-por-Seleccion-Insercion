@@ -1,0 +1,152 @@
+//CODIGO DE ORDENAMIENTO POR SELECCION 
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Ordenamiento_Por_Seleccion
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Agregar un numero a la lista
+            // declarar variable
+            int nro;
+            // leer nro 
+            nro = int.Parse(txtAgregar.Text);
+            // Llevar el numero a la lista
+            lstOriginal.Items.Add(nro);
+            // limpiar caja de texto
+            txtAgregar.Clear();
+            txtAgregar.Focus();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            // Limpiar las listas
+            lstOriginal.Items.Clear();
+            lstOrdenada.Items.Clear();
+        }
+        private string[] getArray(ListBox ListBox)
+        {
+            string[] arr = new string[ListBox.Items.Count];
+            for (int i = 0; i < ListBox.Items.Count; i++)
+            {
+                arr[i] = ListBox.Items[i].ToString();
+            }
+            return arr;
+
+
+        }
+
+        private void btnOrdenar_Click(object sender, EventArgs e)
+        {
+            string[] listadoOriginal = getArray(lstOriginal);
+            string[] listado = listadoOriginal.OrderBy(x => x).ToArray();
+
+            for (int i = 0; i < listado.Length; i++)
+            {
+                lstOrdenada.Items.Add(listado[i]);
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//CODIGO DE ORDENAMIENTO POR INSERCION 
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Ordenamiento_por_Insercion
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            // Agregar un numero a la lista
+            // declarar variable
+            int nro;
+            // leer nro 
+            nro = int.Parse(txtAgregar.Text);
+            // Llevar el numero a la lista
+            lstOriginal.Items.Add(nro);
+            // limpiar caja de texto
+            txtAgregar.Clear();
+            txtAgregar.Focus();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            // Limpiar las listas
+            lstOriginal.Items.Clear();
+            lstOrdenada.Items.Clear();
+        }
+        private string[] getArray(ListBox ListBox)
+        {
+            string[] arr = new string[ListBox.Items.Count];
+            for (int i = 0; i - 1 < i; i++)
+                for (int j = 0; j - 1 < j; j--)
+                {
+                    arr[i] = ListBox.Items[i].ToString();
+                    arr[j] = ListBox.Items[j].ToString();
+                }
+            return arr;
+        }
+        private void btnOrdenar_Click(object sender, EventArgs e)
+        {
+            string[] listadoOriginal = getArray(lstOriginal);
+            string[] listado = listadoOriginal.OrderBy(x => x).ToArray();
+
+            for (int i = 0; i - 1 < i; i++)
+            {
+                lstOrdenada.Items.Add(listado[i]);
+                for (int j = 0; j - 1 < j; j--)
+                    lstOrdenada.Items.Add(listado[i]);
+                lstOrdenada.Items.Add(listado[j]);
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
